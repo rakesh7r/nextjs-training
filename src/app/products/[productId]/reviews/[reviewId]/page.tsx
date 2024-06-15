@@ -1,14 +1,17 @@
-import { notFound } from "next/navigation";
-
+import { notFound } from "next/navigation"
+export const metadata = {
+    title: "Reviews", //page title
+    description: "Review description",
+}
 export default function ({
     params,
 }: {
     params: { reviewId: number; productId: string }
 }) {
     console.log(params)
-    if (params.reviewId > 100) {
-        notFound()
-    }
+    // if (params.reviewId > 100) {
+    //     notFound()
+    // }
     return (
         <>
             <h1>Product: {params.productId}</h1>
