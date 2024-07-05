@@ -1,17 +1,23 @@
+import { ReactNode } from "react"
 import Card from "../components/Card"
-//testing github actions
+
+interface ComplexLayoutProps {
+    children: ReactNode
+    notifications: ReactNode
+    users: ReactNode
+    revenue: ReactNode
+    login: ReactNode
+}
+
 export default function ComplexLayout({
     children,
     notifications,
     users,
     revenue,
-}: {
-    children: React.ReactNode
-    notifications: React.ReactNode
-    users: React.ReactNode
-    revenue: React.ReactNode
-}) {
-    return (
+    login,
+}: ComplexLayoutProps) {
+    const isLoggedIn = true
+    return isLoggedIn ? (
         <div>
             <Card>{children}</Card>
             <div className="flex flex-rosw">
@@ -22,5 +28,7 @@ export default function ComplexLayout({
                 <Card>{notifications}</Card>
             </div>
         </div>
+    ) : (
+        login
     )
 }
